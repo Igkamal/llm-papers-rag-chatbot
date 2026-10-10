@@ -63,23 +63,24 @@ Research papers are long, technical and hard to search. A general-purpose LLM as
 ## 3. Project structure
 
 ```
-RAG_Chatbot/
+llm-papers-rag-chatbot/
+├── AI-Client-Project-5_RAG_Chatbot.ipynb   # complete project notebook (with outputs)
 ├── DATA/                  # the 8 PDF papers
 ├── chroma_db/             # saved vector store (created by ingest.py)
 ├── src/
 │   ├── ingest.py          # load, chunk, embed, index
 │   ├── rag_chain.py       # retrieval + generation (ask())
 │   └── evaluate.py        # RAGAS evaluation
-├── screenshots/           # app screenshots
+├── screenshots/           # app screenshots (Answer.png, refusal.png)
+├── .streamlit/            # Streamlit settings
 ├── app.py                 # Streamlit chat UI
 ├── architecture.png       # architecture diagram
 ├── eval_results_k4.csv    # per-question scores, k = 4
 ├── eval_results_k6.csv    # per-question scores, k = 6
 ├── requirements.txt
-├── .env                   # GROQ_API_KEY (NOT committed or shared)
+├── .env.example           # template for the API key file
+├── .gitignore
 └── README.md
-```
-
 ---
 
 ## 4. Setup and usage (Windows)
@@ -93,9 +94,8 @@ venv\Scripts\activate
 
 # 2. Install dependencies
 pip install -r requirements.txt
-
-# 3. Add your Groq API key to a file named .env in the project root
-#    GROQ_API_KEY=your_key_here
+ 
+# 3. Copy .env.example to a new file named .env and put your Groq API key in it
 
 # 4. Build the vector store (only needed if chroma_db/ is missing)
 python src\ingest.py
