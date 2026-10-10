@@ -125,7 +125,7 @@ python src\evaluate.py
 
 **A grounded answer with sources**
 
-![Answer with sources](screenshots/answer.png)
+![Answer with sources](screenshots/Answer.png)
 
 **A question outside the papers is refused**
 
